@@ -1,52 +1,30 @@
-# Codex Security
+# Codex Security — JoseloFarias fork
 
-`@openai/codex-security` is a CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities in your code. Scan repositories, review changes, track findings over time, and run security checks in CI.
+Repositorio de seguridad orientado a revisión, hardening y automatización defensiva de flujos asistidos por agentes, mantenido por **JoseloFarias**.
 
-**[Documentation](http://learn.chatgpt.com/docs/security/cli)**
+## Objetivos
 
-## Quick start
+- Detectar configuraciones inseguras, secretos y permisos excesivos.
+- Mantener validaciones reproducibles y evidencia verificable.
+- No debilitar controles de seguridad para hacer pasar tests o builds.
+- Preservar atribuciones y licencia de los componentes derivados.
 
-Requires Node.js 22 or later, Python 3.10 or later, and access to Codex Security.
+## Estado
 
-```bash
-npm install @openai/codex-security
-npx @openai/codex-security login
-npx @openai/codex-security scan .
-npx @openai/codex-security scan . --model gpt-5.6-terra --effort high
-```
+Proyecto en mantenimiento activo.
 
-For CI, set `OPENAI_API_KEY` instead of signing in.
-
-If both a ChatGPT sign-in and an API key are available, interactive scans ask
-which credential to use. CI and other noninteractive scans keep the existing
-API-key precedence. Select a credential explicitly when needed:
+## Uso
 
 ```bash
-npx @openai/codex-security scan . --auth chatgpt
-npx @openai/codex-security scan . --auth api-key
+git clone https://github.com/joselofarias-byte/codex-security.git
+cd codex-security
 ```
 
-To make your ChatGPT sign-in the automatic default, unset any configured API
-keys:
+Ejecute únicamente los analizadores y scripts documentados para el alcance que corresponda.
 
-```bash
-unset OPENAI_API_KEY CODEX_API_KEY
-```
+## Licencia y atribución
 
-Scan history is stored in the Codex Security workbench state directory. If that
-directory cannot be written, set `CODEX_SECURITY_STATE_DIR` to a writable
-directory outside the repository.
+Consulte `LICENSE` y el historial Git para condiciones y autores aplicables.
 
-## TypeScript SDK
-
-```ts
-import { CodexSecurity } from "@openai/codex-security";
-
-const security = new CodexSecurity();
-const result = await security.run(".");
-
-console.log(result.reportPath);
-await security.close();
-```
-
-For installation, authentication, scan options, and CI setup, see the [official documentation](http://learn.chatgpt.com/docs/security/cli).
+---
+**Mantenimiento:** JoseloFarias
